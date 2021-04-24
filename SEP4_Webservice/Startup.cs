@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using SEP4_Webservice.Data;
+using SEP4_Webservice.Data.TemperatureService;
 using SEP4_Webservice.DataAccess;
 
 namespace SEP4_Webservice
@@ -32,6 +33,8 @@ namespace SEP4_Webservice
             services.AddControllers();
             services.AddScoped<EmployeeData>();
             services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<TemperatureData>();
+            services.AddScoped<ITemperatureService, TemperatureService>();
 
             services.AddSwaggerGen(c =>
             {

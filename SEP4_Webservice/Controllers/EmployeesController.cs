@@ -25,8 +25,8 @@ namespace SEP4_Webservice.Controllers
         {
             try
             {
-                IList<Employee> adults = await EmployeeService.GetEmployeesByName(name);
-                return Ok(adults);
+                IList<Employee> employees = await EmployeeService.GetEmployeesByName(name);
+                return Ok(employees);
             }
             catch (Exception e)
             {
