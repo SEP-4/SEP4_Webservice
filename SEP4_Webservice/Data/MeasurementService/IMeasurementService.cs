@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using SEP4_Webservice.Model;
 
-namespace SEP4_Webservice.Data.TemperatureService
+namespace SEP4_Webservice.Data
 {
-    public interface ITemperatureService
+    public interface IMeasurementService
     {
-        Task<Temperature> GetLastTemperature();
+        Task<Measurement> GetLastMeasurement();
     }
 }

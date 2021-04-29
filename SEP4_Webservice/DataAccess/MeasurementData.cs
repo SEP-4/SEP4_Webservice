@@ -9,14 +9,13 @@ using SEP4_Webservice.Model;
 
 namespace SEP4_Webservice.DataAccess
 {
-    public class TemperatureData
+    public class MeasurementData
     {
-        public Temperature GetLastTemperature()
+        public Measurement GetLastMeasurement()
         {
             using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
             {
-                //var output = connection.Query<Employee>($"select * from Employee where Name='{ name }'").ToList();
-                var output = connection.Query<Temperature>("dbo.spTemperature_GetLast").ToList();
+                var output = connection.Query<Measurement>("dbo.spMeasurement_GetLast").ToList();
                 return output.First();
             }
         }

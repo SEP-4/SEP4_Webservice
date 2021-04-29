@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using SEP4_Webservice.Data.TemperatureService;
+using SEP4_Webservice.Data;
 using SEP4_Webservice.Model;
 
 namespace SEP4_Webservice.Controllers
@@ -11,21 +11,21 @@ namespace SEP4_Webservice.Controllers
     [Produces("application/json")]
     [ApiController]
     [Route("[controller]")]
-    public class TemperatureController : ControllerBase
+    public class MeasurementController : ControllerBase
     {
-        private ITemperatureService TemperatureService;
-        public TemperatureController(ITemperatureService temperatureService)
+        private IMeasurementService MeasurementService;
+        public MeasurementController(IMeasurementService measurementService)
         {
-            TemperatureService = temperatureService;
+            MeasurementService = measurementService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<Temperature>> GetLastTemperature()
+        public async Task<ActionResult<Measurement>> GetLastTemperature()
         {
             try
             {
-                Temperature temperature = await TemperatureService.GetLastTemperature();
-                return Ok(temperature);
+                Measurement measurement = await MeasurementService.GetLastMeasurement();
+                return Ok(measurement);
             }
             catch (Exception e)
             {
