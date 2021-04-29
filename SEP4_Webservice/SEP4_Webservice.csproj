@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <StartupObject>SEP4_Webservice.SetupDatabase.RunDatabase</StartupObject>
+    <StartupObject>SEP4_Webservice.Program</StartupObject>
     <OutputType>WinExe</OutputType>
   </PropertyGroup>
 
