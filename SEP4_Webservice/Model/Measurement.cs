@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace SEP4_Webservice.Model
 {
-    public class Temperature
+    public class Measurement
     {
-        public int Temperature_ID { get; set; }
+        public int Measurement_ID { get; set; }
         public int Gym_ID { get; set; }
-        [JsonPropertyName("Temperature")]
-        public float temperature { get; set; }
+        public float Temperature { get; set; }
+        public float Humidity { get; set; }
+        public float CO2Level { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }
         
