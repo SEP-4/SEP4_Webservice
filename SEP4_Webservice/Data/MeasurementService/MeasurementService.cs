@@ -16,6 +16,12 @@ namespace SEP4_Webservice.Data
             this.dataAccess = dataAccess;
         }
 
+        public async Task<Measurement> AddMeasurement(Measurement measurement)
+        {
+            dataAccess.InsertMeasurement(measurement);
+            return measurement;
+        }
+
         public async Task<Measurement> GetLastMeasurement()
         {
             Measurement temperature = new Measurement();

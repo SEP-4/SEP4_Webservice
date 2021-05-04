@@ -69,7 +69,7 @@ namespace SEP4_Webservice.SetupDatabase
                 string code =
 "CREATE TABLE [dbo].[Measurement](" +
     "[Measurement_ID][int] IDENTITY NOT NULL," +
-    "[Date] [date] NULL," +
+    "[Date] [datetime] NULL," +
     "[Time] [time] NULL," +
     "[Temperature] [float] NULL," +
     "[Humidity] [float] NULL," +
@@ -180,7 +180,7 @@ namespace SEP4_Webservice.SetupDatabase
     "[Dehumidifier_ID] [int]  NULL, " +
     "[Humidifier_ID] [int]  NULL, " +
     "[Action] [nchar](100) NULL, " +
-    "[Date] [date] NULL, " +
+    "[Date] [datetime] NULL, " +
     "[Time] [time] NULL, " +
  "CONSTRAINT[PK_LogState] PRIMARY KEY CLUSTERED " +
 "(" +

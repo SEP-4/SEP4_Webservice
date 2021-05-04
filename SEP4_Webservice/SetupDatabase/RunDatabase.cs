@@ -23,6 +23,7 @@ namespace SEP4_Webservice.SetupDatabase
             create.createLogStateTable();
 
             procedures.createLastMeasuermentSP();
+            procedures.createInsertMeasuermentSP();
 
             populate.populateClimateSetting();
             populate.populateGym();
