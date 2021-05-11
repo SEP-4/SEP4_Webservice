@@ -22,11 +22,11 @@ namespace SEP4_Webservice.Data
             return measurement;
         }
 
-        public async Task<Measurement> GetLastMeasurement()
+        public async Task<MeasurementTime> GetLastMeasurement()
         {
-            Measurement temperature = new Measurement();
-            temperature = dataAccess.GetLastMeasurement();
-            return temperature;
+            MeasurementTime measurement = new MeasurementTime();
+            measurement = dataAccess.GetLastMeasurement();
+            return measurement;
         }
     }
 }

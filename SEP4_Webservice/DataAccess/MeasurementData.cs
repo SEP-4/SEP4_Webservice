@@ -11,12 +11,26 @@ namespace SEP4_Webservice.DataAccess
 {
     public class MeasurementData
     {
-        public Measurement GetLastMeasurement()
+        public MeasurementTime GetLastMeasurement()
         {
             using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
             {
                 var output = connection.Query<Measurement>("dbo.spMeasurement_GetLast").ToList();
-                return output.First();
+                MeasurementTime returnMeasurenent = new MeasurementTime
+                {
+                    Measurement_ID = output.First().Measurement_ID,
+                    Gym_ID = output.First().Gym_ID,
+                    Temperature = output.First().Temperature,
+                    Humidity = output.First().Humidity,
+                    CO2Level = output.First().CO2Level,
+                    Date = output.First().Date,
+                    Time = output.First().Time.Ticks
+                };
+                DateTime dateTime = new DateTime(returnMeasurenent.Date.Year, returnMeasurenent.Date.Month, returnMeasurenent.Date.Day,output.First().Time.Hours, output.First().Time.Minutes, output.First().Time.Seconds);
+                DateTime otherDateTime = new DateTime(1970,1,1);
+                TimeSpan diff = dateTime - otherDateTime;
+                returnMeasurenent.Time = (long)diff.TotalMilliseconds - 7200000;
+                return returnMeasurenent;
             }
         }
 
@@ -27,7 +41,7 @@ namespace SEP4_Webservice.DataAccess
                 Measurement newMeasurement = new Measurement();
                 newMeasurement = measurement;
 
-                connection.Execute("dbo.spInsert_Measurement @Date date, @Time time(7),@Temperature float, @Humidity float,@CO2Level float,@Gym_ID int", newMeasurement);
+                connection.Execute("dbo.spInsert_Measurement @Date datatime, @Time time(7),@Temperature float, @Humidity float,@CO2Level float,@Gym_ID int", newMeasurement);
             }
         }
     }

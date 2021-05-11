@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace SEP4_Webservice.Model
 {
-    public class Measurement
+    public class MeasurementTime
     {
         public int Measurement_ID { get; set; }
         public int Gym_ID { get; set; }
@@ -14,6 +13,6 @@ namespace SEP4_Webservice.Model
         public float Humidity { get; set; }
         public float CO2Level { get; set; }
         public DateTime Date { get; set; }
-        public TimeSpan Time { get; set; }
+        public long Time { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace SEP4_Webservice.Data
 {
     public interface IMeasurementService
     {
-        Task<Measurement> GetLastMeasurement();
+        Task<MeasurementTime> GetLastMeasurement();
         Task<Measurement> AddMeasurement(Measurement measurement);
     }
 }

@@ -21,11 +21,11 @@ namespace SEP4_Webservice.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<Measurement>> GetLastTemperature()
+        public async Task<ActionResult<MeasurementTime>> GetLastTemperature()
         {
             try
             {
-                Measurement measurement = await MeasurementService.GetLastMeasurement();
+                MeasurementTime measurement = await MeasurementService.GetLastMeasurement();
                 return Ok(measurement);
             }
             catch (Exception e)
@@ -36,6 +36,7 @@ namespace SEP4_Webservice.Controllers
         }
 
         [HttpPost]
+        [Route("post")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<Measurement>> AddMeasureMent([FromBody] Measurement measurement)
