@@ -24,6 +24,7 @@ namespace SEP4_Webservice.SetupDatabase
 
             procedures.createLastMeasuermentSP();
             procedures.createInsertMeasuermentSP();
+            procedures.createGetGymByEmailSP();
 
             populate.populateClimateSetting();
             populate.populateGym();

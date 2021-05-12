@@ -6,10 +6,8 @@ using SEP4_Webservice.Model;
 
 namespace SEP4_Webservice.Data
 {
-    public interface IEmployeeService
+    public interface IGymService
     {
-        Task<IList<Employee>> GetEmployeesByName(string name);
-
-        Task<Employee> AddEmployee(Employee employee);
+        Task<Gym> GetGymByEmail(string email);
     }
 }

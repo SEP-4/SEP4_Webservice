@@ -30,8 +30,8 @@ namespace SEP4_Webservice
         {
 
             services.AddControllers();
-            services.AddScoped<EmployeeData>();
-            services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<GymData>();
+            services.AddScoped<IGymService, GymService>();
             services.AddScoped<MeasurementData>();
             services.AddScoped<IMeasurementService, MeasurementService>();
 

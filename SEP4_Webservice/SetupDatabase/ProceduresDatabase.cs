@@ -31,18 +31,36 @@ namespace SEP4_Webservice.SetupDatabase
         {
             using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
             {
-                string code = "create procedure dbo.spInsert_Measurement "+
-            "@Date datetime, "+
-            "@Time time, "+
-	        "@Temperature float, "+
-            "@Humidity float, "+
-            "@CO2Level float, "+
-            "@Gym_ID int "+
-           " as "+
-            "begin "+
-            "SET NOCOUNT ON; "+
-           " INSERT INTO SEP4DB.dbo.Measurement(Date, Time, Temperature, Humidity, CO2Level, Gym_ID) "+
-            "VALUES(@Date, @Time, @Temperature, @Humidity, @CO2Level, @Gym_ID); "+
+                string code = "create procedure dbo.spInsert_Measurement " +
+            "@Date datetime, " +
+            "@Time time, " +
+            "@Temperature float, " +
+            "@Humidity float, " +
+            "@CO2Level float, " +
+            "@Gym_ID int " +
+           " as " +
+            "begin " +
+            "SET NOCOUNT ON; " +
+           " INSERT INTO SEP4DB.dbo.Measurement(Date, Time, Temperature, Humidity, CO2Level, Gym_ID) " +
+            "VALUES(@Date, @Time, @Temperature, @Humidity, @CO2Level, @Gym_ID); " +
+                "end";
+
+                connection.Execute(code);
+            }
+        }
+
+        public void createGetGymByEmailSP()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                string code = "create procedure dbo.spGym_GetByEmail " +
+                   "@Email nvarchar(50) " +
+                "as " +
+                "begin " +
+                   "SET NOCOUNT ON; " +
+                   "select Gym_ID, Address, Contact, PostCode, City, Email, Password " +
+                   "from dbo.Gym " +
+                   "where Email = @Email " +
                 "end";
 
                 connection.Execute(code);
