@@ -41,12 +41,12 @@ namespace SEP4_Webservice.SetupDatabase
 "CREATE TABLE[dbo].[Gym]( " +
     "[Gym_ID][int] IDENTITY NOT NULL, " +
     "[ClimateSetting_ID] [int] NOT NULL, " +
-    "[Addres] [nchar](50) NULL, " +
-    "[Contact] [nchar](30) NULL, " +
-    "[PostCode] [nchar](10) NULL, " +
-    "[City] [nchar](30) NULL, " +
-    "[Password] [nchar](30) NULL, " +
-    "[Email] [nchar](50) NULL, " +
+    "[Address] [nvarchar](50) NULL, " +
+    "[Contact] [nvarchar](30) NULL, " +
+    "[PostCode] [nvarchar](10) NULL, " +
+    "[City] [nvarchar](30) NULL, " +
+    "[Password] [nvarchar](30) NULL, " +
+    "[Email] [nvarchar](50) NULL, " +
  "CONSTRAINT[PK_Gym] PRIMARY KEY CLUSTERED" +
 "(" +
    "[Gym_ID] ASC" +
@@ -179,7 +179,7 @@ namespace SEP4_Webservice.SetupDatabase
     "[AC_ID] [int]  NULL, " +
     "[Dehumidifier_ID] [int]  NULL, " +
     "[Humidifier_ID] [int]  NULL, " +
-    "[Action] [nchar](100) NULL, " +
+    "[Action] [nvarchar](100) NULL, " +
     "[Date] [datetime] NULL, " +
     "[Time] [time] NULL, " +
  "CONSTRAINT[PK_LogState] PRIMARY KEY CLUSTERED " +

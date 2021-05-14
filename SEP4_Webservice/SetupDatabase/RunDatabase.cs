@@ -22,12 +22,13 @@ namespace SEP4_Webservice.SetupDatabase
             create.creatWindowTable();
             create.createLogStateTable();
 
+            populate.populateClimateSetting();
+            populate.populateGym();
+
             procedures.createLastMeasuermentSP();
             procedures.createInsertMeasuermentSP();
             procedures.createGetGymByEmailSP();
 
-            populate.populateClimateSetting();
-            populate.populateGym();
         }
     }
 }

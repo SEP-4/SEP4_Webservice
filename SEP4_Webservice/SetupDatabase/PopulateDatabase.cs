@@ -25,7 +25,7 @@ namespace SEP4_Webservice.SetupDatabase
         {
             using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
             {
-                string code = "insert into SEP4DB.dbo.Gym(ClimateSetting_ID, Addres, Contact, PostCode, City,Email,Password) " +
+                string code = "insert into SEP4DB.dbo.Gym(ClimateSetting_ID, Address, Contact, PostCode, City,Email,Password) " +
 "VALUES(1, 'Vejlevej', 73896443, 8700, 'Horsens', 'gym@gym.com', 'gym123')";
 
                 connection.Execute(code);
