@@ -31,6 +31,46 @@ namespace SEP4_Webservice.SetupDatabase
                 connection.Execute(code);
             }
         }
+
+        public void populateAC()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                string code = "INSERT INTO Ac (Gym_ID,State,TargetTemperature) VALUES (1,0,22)";
+
+                connection.Execute(code);
+            }
+        }
+
+        public void populateDehumiditifier()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                string code = "INSERT INTO Dehumidifier(Gym_ID,State) VALUES (1,0)";
+
+                connection.Execute(code);
+            }
+        }
+
+        public void populateHumiditifier()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                string code = "INSERT INTO Humidifier(Gym_ID,State) VALUES (1,0)";
+
+                connection.Execute(code);
+            }
+        }
+
+        public void populateWindow()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                string code = "INSERT INTO Window(Gym_ID,State) VALUES (1,0)";
+
+                connection.Execute(code);
+            }
+        }
     }
 }
 

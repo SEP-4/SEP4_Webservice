@@ -24,10 +24,28 @@ namespace SEP4_Webservice.SetupDatabase
 
             populate.populateClimateSetting();
             populate.populateGym();
+            populate.populateAC();
+            populate.populateDehumiditifier();
+            populate.populateHumiditifier();
+            populate.populateWindow();
+
 
             procedures.createLastMeasuermentSP();
             procedures.createInsertMeasuermentSP();
             procedures.createGetGymByEmailSP();
+            procedures.turnOffACSP();
+            procedures.turnOnACSP();
+            procedures.getACSP();
+            procedures.turnOffDehumidifierSP();
+            procedures.turnOnDehumidifierSP();
+            procedures.getDehumidifierSP();
+            procedures.turnOffHumidifierSP();
+            procedures.turnOnHumidifierSP();
+            procedures.getHumidifierSP();
+            procedures.turnOffWindowSP();
+            procedures.turnOnWindowSP();
+            procedures.getWindowSP();
+
 
         }
     }

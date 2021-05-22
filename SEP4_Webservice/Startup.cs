@@ -34,6 +34,8 @@ namespace SEP4_Webservice
             services.AddScoped<IGymService, GymService>();
             services.AddScoped<MeasurementData>();
             services.AddScoped<IMeasurementService, MeasurementService>();
+            services.AddScoped<DeviceData>();
+            services.AddScoped<IDeviceService, DeviceService>();
 
             services.AddSwaggerGen(c =>
             {
