@@ -95,6 +95,7 @@ namespace SEP4_Webservice.SetupDatabase
     "[AC_ID][int] IDENTITY NOT NULL, " +
     "[Gym_ID] [int] NOT NULL, " +
     "[State] [bit] NULL, " +
+    "[automation] [bit] NULL, " +
     "[TargetTemperature] [float] NULL, " +
  "CONSTRAINT[PK_AC] PRIMARY KEY CLUSTERED " +
 "(" +
@@ -116,6 +117,7 @@ namespace SEP4_Webservice.SetupDatabase
     "[Dehumidifier_ID][int] IDENTITY NOT NULL, " +
     "[Gym_ID] [int] NOT NULL, " +
     "[State] [bit] NULL, " +
+    "[automation] [bit] NULL, " +
 "CONSTRAINT[PK_Dehumidifier] PRIMARY KEY CLUSTERED " +
 "(" +
    "[Dehumidifier_ID] ASC " +
@@ -136,6 +138,7 @@ namespace SEP4_Webservice.SetupDatabase
     "[Humidifier_ID][int] IDENTITY NOT NULL, " +
     "[Gym_ID] [int] NOT NULL, " +
     "[State] [bit] NULL, " +
+    "[automation] [bit] NULL, " +
  "CONSTRAINT[PK_Humidifier] PRIMARY KEY CLUSTERED " +
 "(" +
     "[Humidifier_ID] ASC " +
@@ -156,6 +159,7 @@ namespace SEP4_Webservice.SetupDatabase
     "[Window_ID][int] IDENTITY NOT NULL, " +
     "[Gym_ID] [int] NOT NULL, " +
     "[State] [bit] NULL, " +
+    "[automation] [bit] NULL, " +
  "CONSTRAINT[PK_Window] PRIMARY KEY CLUSTERED " +
 "(" +
     "[Window_ID] ASC " +

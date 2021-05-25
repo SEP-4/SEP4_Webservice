@@ -45,8 +45,14 @@ namespace SEP4_Webservice.SetupDatabase
             procedures.turnOffWindowSP();
             procedures.turnOnWindowSP();
             procedures.getWindowSP();
-
-
+            procedures.turnOffACAutomationSP();
+            procedures.turnOnACAutomationSP();
+            procedures.turnOffWindowAutomationSP();
+            procedures.turnOnWindowAutomationSP();
+            procedures.turnOffDehumidifierAutomationSP();
+            procedures.turnOnDehumidifierAutomationSP();
+            procedures.turnOffHumidifierAutomationSP();
+            procedures.turnOnHumidifierAutomationSP();
         }
     }
 }

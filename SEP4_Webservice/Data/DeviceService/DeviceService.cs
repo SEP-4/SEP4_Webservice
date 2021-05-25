@@ -82,5 +82,45 @@ namespace SEP4_Webservice.Data
             window = dataAccess.GetWindowByGymID(gym_id);
             return window;
         }
+
+        public async Task turnOffACAutomation(int gym_id)
+        {
+            dataAccess.turnOffACAutomation(gym_id);
+        }
+
+        public async Task turnOnACAutomation(int gym_id)
+        {
+            dataAccess.turnOnACAutomation(gym_id);
+        }
+
+        public async Task turnOffDehumidifierAutomation(int gym_id)
+        {
+            dataAccess.turnOffDehumidifierAutomation(gym_id);
+        }
+
+        public async Task turnOnDehumidifierAutomation(int gym_id)
+        {
+            dataAccess.turnOnDehumidifierAutomation(gym_id);
+        }
+
+        public async Task turnOffHumidifierAutomation(int gym_id)
+        {
+            dataAccess.turnOffHumidifierAutomation(gym_id);
+        }
+
+        public async Task turnOnHumidifierAutomation(int gym_id)
+        {
+            dataAccess.turnOnHumidifierAutomation(gym_id);
+        }
+
+        public async Task turnOffWindowAutomation(int gym_id)
+        {
+            dataAccess.turnOffWindowAutomation(gym_id);
+        }
+
+        public async Task turnOnWindowAutomation(int gym_id)
+        {
+            dataAccess.turnOnWindowAutomation(gym_id);
+        }
     }
 }

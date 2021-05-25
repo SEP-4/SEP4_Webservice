@@ -67,5 +67,37 @@ namespace SEP4_Webservice.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+
+        [HttpGet]
+        [Route("turnOnAutomation/{Gym_ID:int}")]
+        public async Task<ActionResult> TurnOnDehumidifierAutomation([FromRoute] int Gym_ID)
+        {
+            try
+            {
+                await DeviceService.turnOnDehumidifierAutomation(Gym_ID);
+                return Ok("Dehumidifier automation is turned on!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("turnOffAutomation/{Gym_ID:int}")]
+        public async Task<ActionResult> TurnOffDehumidifierAutomation([FromRoute] int Gym_ID)
+        {
+            try
+            {
+                await DeviceService.turnOffDehumidifierAutomation(Gym_ID);
+                return Ok("Dehumidifier automation is turned off!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
     }
 }

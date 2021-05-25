@@ -67,5 +67,37 @@ namespace SEP4_Webservice.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+
+        [HttpGet]
+        [Route("turnOnAutomation/{Gym_ID:int}")]
+        public async Task<ActionResult> TurnOnACAutomation([FromRoute] int Gym_ID)
+        {
+            try
+            {
+                await DeviceService.turnOnACAutomation(Gym_ID);
+                return Ok("AC automation is turned on!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("turnOffAutomation/{Gym_ID:int}")]
+        public async Task<ActionResult> TurnOffACAutomation([FromRoute] int Gym_ID)
+        {
+            try
+            {
+                await DeviceService.turnOffACAutomation(Gym_ID);
+                return Ok("AC automation is turned off!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
     }
 }

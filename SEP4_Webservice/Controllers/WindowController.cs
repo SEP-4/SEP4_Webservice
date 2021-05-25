@@ -67,5 +67,37 @@ namespace SEP4_Webservice.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+
+        [HttpGet]
+        [Route("turnOnAutomation/{Gym_ID:int}")]
+        public async Task<ActionResult> TurnOnWindowAutomation([FromRoute] int Gym_ID)
+        {
+            try
+            {
+                await DeviceService.turnOnWindowAutomation(Gym_ID);
+                return Ok("Window automation is turned on!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("turnOffAutomation/{Gym_ID:int}")]
+        public async Task<ActionResult> TurnOffWindowAutomation([FromRoute] int Gym_ID)
+        {
+            try
+            {
+                await DeviceService.turnOffWindowAutomation(Gym_ID);
+                return Ok("Window automation is turned off!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
     }
 }

@@ -23,6 +23,15 @@ namespace SEP4_Webservice.Data
         Task turnOffWindow(int gym_id);
         Task turnOnWindow(int gym_id);
         Task<Window> GetWindowByGymID(int gym_id);
+
+        Task turnOffACAutomation(int gym_id);
+        Task turnOnACAutomation(int gym_id);
+        Task turnOffDehumidifierAutomation(int gym_id);
+        Task turnOnDehumidifierAutomation(int gym_id);
+        Task turnOffHumidifierAutomation(int gym_id);
+        Task turnOnHumidifierAutomation(int gym_id);
+        Task turnOffWindowAutomation(int gym_id);
+        Task turnOnWindowAutomation(int gym_id);
     }
 }
 

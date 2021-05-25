@@ -110,5 +110,69 @@ namespace SEP4_Webservice.DataAccess
                 return output;
             }
         }
+
+        public void turnOffACAutomation(int gym_id)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                connection.Query<AC>("dbo.spTurnOffAutomation_AC @Gym_ID", new { Gym_ID = gym_id });
+            }
+        }
+
+        public void turnOnACAutomation(int gym_id)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                connection.Query<AC>("dbo.spTurnOnAutomation_AC @Gym_ID", new { Gym_ID = gym_id });
+            }
+        }
+
+        public void turnOffDehumidifierAutomation(int gym_id)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                connection.Query<Dehumidifier>("dbo.spTurnOffAutomation_Dehumidifier @Gym_ID", new { Gym_ID = gym_id });
+            }
+        }
+
+        public void turnOnDehumidifierAutomation(int gym_id)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                connection.Query<Dehumidifier>("dbo.spTurnOnAutomation_Dehumidifier @Gym_ID", new { Gym_ID = gym_id });
+            }
+        }
+
+        public void turnOffHumidifierAutomation(int gym_id)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                connection.Query<Humidifier>("dbo.spTurnOffAutomation_Humidifier @Gym_ID", new { Gym_ID = gym_id });
+            }
+        }
+
+        public void turnOnHumidifierAutomation(int gym_id)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                connection.Query<Humidifier>("dbo.spTurnOnAutomation_Humidifier @Gym_ID", new { Gym_ID = gym_id });
+            }
+        }
+
+        public void turnOffWindowAutomation(int gym_id)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                connection.Query<Window>("dbo.spTurnOffAutomation_Window @Gym_ID", new { Gym_ID = gym_id });
+            }
+        }
+
+        public void turnOnWindowAutomation(int gym_id)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                connection.Query<Window>("dbo.spTurnOnAutomation_Window @Gym_ID", new { Gym_ID = gym_id });
+            }
+        }
     }
 }

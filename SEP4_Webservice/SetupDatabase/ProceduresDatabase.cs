@@ -110,7 +110,7 @@ namespace SEP4_Webservice.SetupDatabase
                 "as " +
                 "begin " +
                     "SET NOCOUNT ON; " +
-                    "select Gym_ID, State, TargetTemperature " +
+                    "select Gym_ID, State, TargetTemperature, automation  " +
                     "from dbo.AC " +
                     "where Gym_ID = @Gym_ID " +
                 "end";
@@ -162,7 +162,7 @@ namespace SEP4_Webservice.SetupDatabase
                 "as " +
                 "begin " +
                     "SET NOCOUNT ON; " +
-                    "select Gym_ID, State " +
+                    "select Gym_ID, State, automation  " +
                     "from dbo.Dehumidifier " +
                     "where Gym_ID = @Gym_ID " +
                 "end";
@@ -214,7 +214,7 @@ namespace SEP4_Webservice.SetupDatabase
                 "as " +
                 "begin " +
                     "SET NOCOUNT ON; " +
-                    "select Gym_ID, State " +
+                    "select Gym_ID, State, automation  " +
                     "from dbo.Humidifier " +
                     "where Gym_ID = @Gym_ID " +
                 "end";
@@ -266,10 +266,146 @@ namespace SEP4_Webservice.SetupDatabase
                 "as " +
                 "begin " +
                     "SET NOCOUNT ON; " +
-                    "select Gym_ID, State " +
+                    "select Gym_ID, State, automation " +
                     "from dbo.Window " +
                     "where Gym_ID = @Gym_ID " +
                 "end";
+
+                connection.Execute(code);
+            }
+        }
+
+        public void turnOffWindowAutomationSP()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                string code = "create procedure dbo.spTurnOffAutomation_Window " +
+                "@Gym_ID int " +
+            "as " +
+            "begin " +
+                 "SET NOCOUNT ON; " +
+                    "UPDATE SEP4DB.dbo.Window SET automation = 0 " +
+                    "where Gym_ID = @Gym_ID; " +
+            "end";
+
+                connection.Execute(code);
+            }
+        }
+
+        public void turnOnWindowAutomationSP()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                string code = "create procedure dbo.spTurnOnAutomation_Window " +
+                "@Gym_ID int " +
+            "as " +
+            "begin " +
+                 "SET NOCOUNT ON; " +
+                    "UPDATE SEP4DB.dbo.Window SET automation = 1 " +
+                    "where Gym_ID = @Gym_ID; " +
+            "end";
+
+                connection.Execute(code);
+            }
+        }
+
+        public void turnOffACAutomationSP()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                string code = "create procedure dbo.spTurnOffAutomation_AC " +
+                "@Gym_ID int " +
+            "as " +
+            "begin " +
+                 "SET NOCOUNT ON; " +
+                    "UPDATE SEP4DB.dbo.AC SET automation = 0 " +
+                    "where Gym_ID = @Gym_ID; " +
+            "end";
+
+                connection.Execute(code);
+            }
+        }
+
+        public void turnOnACAutomationSP()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                string code = "create procedure dbo.spTurnOnAutomation_AC " +
+                "@Gym_ID int " +
+            "as " +
+            "begin " +
+                 "SET NOCOUNT ON; " +
+                    "UPDATE SEP4DB.dbo.AC SET automation = 1 " +
+                    "where Gym_ID = @Gym_ID; " +
+            "end";
+
+                connection.Execute(code);
+            }
+        }
+
+        public void turnOffDehumidifierAutomationSP()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                string code = "create procedure dbo.spTurnOffAutomation_Dehumidifier " +
+                "@Gym_ID int " +
+            "as " +
+            "begin " +
+                 "SET NOCOUNT ON; " +
+                    "UPDATE SEP4DB.dbo.Dehumidifier SET automation = 0 " +
+                    "where Gym_ID = @Gym_ID; " +
+            "end";
+
+                connection.Execute(code);
+            }
+        }
+
+        public void turnOnDehumidifierAutomationSP()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                string code = "create procedure dbo.spTurnOnAutomation_Dehumidifier " +
+                "@Gym_ID int " +
+            "as " +
+            "begin " +
+                 "SET NOCOUNT ON; " +
+                    "UPDATE SEP4DB.dbo.Dehumidifier SET automation = 1 " +
+                    "where Gym_ID = @Gym_ID; " +
+            "end";
+
+                connection.Execute(code);
+            }
+        }
+
+        public void turnOffHumidifierAutomationSP()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                string code = "create procedure dbo.spTurnOffAutomation_Humidifier " +
+                "@Gym_ID int " +
+            "as " +
+            "begin " +
+                 "SET NOCOUNT ON; " +
+                    "UPDATE SEP4DB.dbo.Humidifier SET automation = 0 " +
+                    "where Gym_ID = @Gym_ID; " +
+            "end";
+
+                connection.Execute(code);
+            }
+        }
+
+        public void turnOnHumidifierAutomationSP()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                string code = "create procedure dbo.spTurnOnAutomation_Humidifier " +
+                "@Gym_ID int " +
+            "as " +
+            "begin " +
+                 "SET NOCOUNT ON; " +
+                    "UPDATE SEP4DB.dbo.Humidifier SET automation = 1 " +
+                    "where Gym_ID = @Gym_ID; " +
+            "end";
 
                 connection.Execute(code);
             }
