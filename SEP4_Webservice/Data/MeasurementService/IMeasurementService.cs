@@ -10,5 +10,6 @@ namespace SEP4_Webservice.Data
     {
         Task<MeasurementTime> GetLastMeasurement();
         Task<Measurement> AddMeasurement(Measurement measurement);
+        Task<List<MeasurementGraph>> GetListOfMeasurementByDate(string date);
     }
 }

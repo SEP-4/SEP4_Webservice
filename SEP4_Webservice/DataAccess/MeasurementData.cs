@@ -34,6 +34,15 @@ namespace SEP4_Webservice.DataAccess
             }
         }
 
+        public List<Measurement> GetListOfMeasurementByDate(DateTime date)
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                var output = connection.Query<Measurement>("dbo.spMeasurement_GetListByDate @Date", new { Date = date }).ToList();
+                return output;
+            }
+        }
+
         public void InsertMeasurement(Measurement measurement)
         {
             using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))

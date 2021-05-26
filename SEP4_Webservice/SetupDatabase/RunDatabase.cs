@@ -53,6 +53,7 @@ namespace SEP4_Webservice.SetupDatabase
             procedures.turnOnDehumidifierAutomationSP();
             procedures.turnOffHumidifierAutomationSP();
             procedures.turnOnHumidifierAutomationSP();
+            procedures.getListOfMeasuermentByDateSP();
         }
     }
 }

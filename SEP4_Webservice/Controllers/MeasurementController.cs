@@ -35,6 +35,22 @@ namespace SEP4_Webservice.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("{Date}")]
+        public async Task<ActionResult<MeasurementGraph>> GetLastTemperature([FromRoute] string Date)
+        {
+            try
+            {
+                List<MeasurementGraph> measurements = await MeasurementService.GetListOfMeasurementByDate(Date);
+                return Ok(measurements);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return StatusCode(500, e.Message);
+            }
+        }
+
         [HttpPost]
         [Route("post")]
         [ProducesResponseType(StatusCodes.Status201Created)]

@@ -49,6 +49,23 @@ namespace SEP4_Webservice.SetupDatabase
             }
         }
 
+        public void getListOfMeasuermentByDateSP()
+        {
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
+            {
+                string code = "create procedure dbo.spMeasurement_GetListByDate " +
+             "@Date nvarchar(50) " +
+             "as " +
+             "begin " +
+             "SET NOCOUNT ON; " +
+             "SELECT Measurement_ID, Date, Time, Gym_ID, Temperature, Humidity, CO2Level FROM dbo.Measurement " +
+             "where date = @Date " +
+             "end";
+
+                connection.Execute(code);
+            }
+        }
+
         public void createGetGymByEmailSP()
         {
             using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
