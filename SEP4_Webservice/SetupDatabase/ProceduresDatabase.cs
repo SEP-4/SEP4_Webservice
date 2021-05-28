@@ -136,57 +136,6 @@ namespace SEP4_Webservice.SetupDatabase
             }
         }
 
-        public void turnOffDehumidifierSP()
-        {
-            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
-            {
-                string code = "create procedure dbo.spTurnOff_Dehumidifier " +
-                "@Gym_ID int " +
-            "as " +
-            "begin " +
-                 "SET NOCOUNT ON; " +
-                    "UPDATE SEP4DB.dbo.Dehumidifier SET State = 0 " +
-                    "where Gym_ID = @Gym_ID; " +
-            "end";
-
-                connection.Execute(code);
-            }
-        }
-
-        public void turnOnDehumidifierSP()
-        {
-            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
-            {
-                string code = "create procedure dbo.spTurnOn_Dehumidifier " +
-                "@Gym_ID int " +
-            "as " +
-            "begin " +
-                 "SET NOCOUNT ON; " +
-                    "UPDATE SEP4DB.dbo.Dehumidifier SET State = 1 " +
-                    "where Gym_ID = @Gym_ID; " +
-            "end";
-
-                connection.Execute(code);
-            }
-        }
-
-        public void getDehumidifierSP()
-        {
-            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
-            {
-                string code = "create procedure dbo.spDehumidifier_GetByGymID " +
-                   " @Gym_ID int " +
-                "as " +
-                "begin " +
-                    "SET NOCOUNT ON; " +
-                    "select Gym_ID, State, automation  " +
-                    "from dbo.Dehumidifier " +
-                    "where Gym_ID = @Gym_ID " +
-                "end";
-
-                connection.Execute(code);
-            }
-        }
 
         public void turnOffHumidifierSP()
         {
@@ -353,40 +302,6 @@ namespace SEP4_Webservice.SetupDatabase
             "begin " +
                  "SET NOCOUNT ON; " +
                     "UPDATE SEP4DB.dbo.AC SET automation = 1 " +
-                    "where Gym_ID = @Gym_ID; " +
-            "end";
-
-                connection.Execute(code);
-            }
-        }
-
-        public void turnOffDehumidifierAutomationSP()
-        {
-            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
-            {
-                string code = "create procedure dbo.spTurnOffAutomation_Dehumidifier " +
-                "@Gym_ID int " +
-            "as " +
-            "begin " +
-                 "SET NOCOUNT ON; " +
-                    "UPDATE SEP4DB.dbo.Dehumidifier SET automation = 0 " +
-                    "where Gym_ID = @Gym_ID; " +
-            "end";
-
-                connection.Execute(code);
-            }
-        }
-
-        public void turnOnDehumidifierAutomationSP()
-        {
-            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
-            {
-                string code = "create procedure dbo.spTurnOnAutomation_Dehumidifier " +
-                "@Gym_ID int " +
-            "as " +
-            "begin " +
-                 "SET NOCOUNT ON; " +
-                    "UPDATE SEP4DB.dbo.Dehumidifier SET automation = 1 " +
                     "where Gym_ID = @Gym_ID; " +
             "end";
 

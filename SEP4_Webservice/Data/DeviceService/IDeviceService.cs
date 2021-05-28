@@ -12,9 +12,6 @@ namespace SEP4_Webservice.Data
         Task turnOnAC(int gym_id);
         Task<AC> GetACByGymID(int gym_id);
 
-        Task turnOffDehumidifier(int gym_id);
-        Task turnOnDehumidifier(int gym_id);
-        Task<Dehumidifier> GetDehumidifierByGymID(int gym_id);
 
         Task turnOffHumidifier(int gym_id);
         Task turnOnHumidifier(int gym_id);
@@ -26,8 +23,6 @@ namespace SEP4_Webservice.Data
 
         Task turnOffACAutomation(int gym_id);
         Task turnOnACAutomation(int gym_id);
-        Task turnOffDehumidifierAutomation(int gym_id);
-        Task turnOnDehumidifierAutomation(int gym_id);
         Task turnOffHumidifierAutomation(int gym_id);
         Task turnOnHumidifierAutomation(int gym_id);
         Task turnOffWindowAutomation(int gym_id);

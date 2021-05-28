@@ -108,27 +108,6 @@ namespace SEP4_Webservice.SetupDatabase
             }
         }
 
-        public void createDehumidifierTable()
-        {
-            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
-            {
-                string code = "IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Dehumidifier]') AND type in (N'U')) "+
-"CREATE TABLE[dbo].[Dehumidifier](" +
-    "[Dehumidifier_ID][int] IDENTITY NOT NULL, " +
-    "[Gym_ID] [int] NOT NULL, " +
-    "[State] [bit] NULL, " +
-    "[automation] [bit] NULL, " +
-"CONSTRAINT[PK_Dehumidifier] PRIMARY KEY CLUSTERED " +
-"(" +
-   "[Dehumidifier_ID] ASC " +
-")WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON[PRIMARY] " +
-") ON[PRIMARY] " +
-"ALTER TABLE dbo.Dehumidifier ADD CONSTRAINT FK_Dehumidifier_0 FOREIGN KEY(Gym_ID) REFERENCES dbo.Gym(Gym_ID); ";
-
-                connection.Execute(code);
-            }
-        }
-
         public void createHumidifierTable()
         {
             using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
@@ -181,7 +160,6 @@ namespace SEP4_Webservice.SetupDatabase
     "[Gym_ID] [int] NOT NULL, " +
     "[Window_ID] [int]  NULL, " +
     "[AC_ID] [int]  NULL, " +
-    "[Dehumidifier_ID] [int]  NULL, " +
     "[Humidifier_ID] [int]  NULL, " +
     "[Action] [nvarchar](100) NULL, " +
     "[Date] [datetime] NULL, " +
@@ -194,7 +172,6 @@ namespace SEP4_Webservice.SetupDatabase
 "ALTER TABLE dbo.LogState ADD CONSTRAINT FK_LogState_0 FOREIGN KEY(Gym_ID) REFERENCES dbo.Gym(Gym_ID); " +
 "ALTER TABLE dbo.LogState ADD CONSTRAINT FK_LogState_1 FOREIGN KEY(Window_ID) REFERENCES dbo.Window(Window_ID); " +
 "ALTER TABLE dbo.LogState ADD CONSTRAINT FK_LogState_2 FOREIGN KEY(AC_ID) REFERENCES dbo.AC(AC_ID); " +
-"ALTER TABLE dbo.LogState ADD CONSTRAINT FK_LogState_3 FOREIGN KEY(Dehumidifier_ID) REFERENCES dbo.Dehumidifier(Dehumidifier_ID); " +
 "ALTER TABLE dbo.LogState ADD CONSTRAINT FK_LogState_4 FOREIGN KEY(Humidifier_ID) REFERENCES dbo.Humidifier(Humidifier_ID); ";
 
                 connection.Execute(code);

@@ -17,7 +17,6 @@ namespace SEP4_Webservice.SetupDatabase
             create.createGymTable();
             create.createMeasurementTable();
             create.createACTable();
-            create.createDehumidifierTable();
             create.createHumidifierTable();
             create.creatWindowTable();
             create.createLogStateTable();
@@ -25,7 +24,6 @@ namespace SEP4_Webservice.SetupDatabase
             populate.populateClimateSetting();
             populate.populateGym();
             populate.populateAC();
-            populate.populateDehumiditifier();
             populate.populateHumiditifier();
             populate.populateWindow();
 
@@ -36,9 +34,6 @@ namespace SEP4_Webservice.SetupDatabase
             procedures.turnOffACSP();
             procedures.turnOnACSP();
             procedures.getACSP();
-            procedures.turnOffDehumidifierSP();
-            procedures.turnOnDehumidifierSP();
-            procedures.getDehumidifierSP();
             procedures.turnOffHumidifierSP();
             procedures.turnOnHumidifierSP();
             procedures.getHumidifierSP();
@@ -49,8 +44,6 @@ namespace SEP4_Webservice.SetupDatabase
             procedures.turnOnACAutomationSP();
             procedures.turnOffWindowAutomationSP();
             procedures.turnOnWindowAutomationSP();
-            procedures.turnOffDehumidifierAutomationSP();
-            procedures.turnOnDehumidifierAutomationSP();
             procedures.turnOffHumidifierAutomationSP();
             procedures.turnOnHumidifierAutomationSP();
             procedures.getListOfMeasuermentByDateSP();

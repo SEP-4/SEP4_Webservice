@@ -11,7 +11,6 @@ namespace SEP4_Webservice.Data
     {
         private DeviceData dataAccess;
         private AC ac;
-        private Dehumidifier dehumiditifier;
         private Humidifier humiditifier;
         private Window window;
         public DeviceService(DeviceData dataAccess)
@@ -34,23 +33,7 @@ namespace SEP4_Webservice.Data
             ac = dataAccess.GetACByGymID(gym_id);
             return ac;
         }
-
-        public async Task turnOffDehumidifier(int gym_id)
-        {
-            dataAccess.turnOffDehumidifier(gym_id);
-        }
-
-        public async Task turnOnDehumidifier(int gym_id)
-        {
-            dataAccess.turnOnDehumidifier(gym_id);
-        }
-
-        public async Task<Dehumidifier> GetDehumidifierByGymID(int gym_id)
-        {
-            dehumiditifier = dataAccess.GetDehumidifierByGymID(gym_id);
-            return dehumiditifier;
-        }
-
+       
         public async Task turnOffHumidifier(int gym_id)
         {
             dataAccess.turnOffHumidifier(gym_id);
@@ -91,16 +74,6 @@ namespace SEP4_Webservice.Data
         public async Task turnOnACAutomation(int gym_id)
         {
             dataAccess.turnOnACAutomation(gym_id);
-        }
-
-        public async Task turnOffDehumidifierAutomation(int gym_id)
-        {
-            dataAccess.turnOffDehumidifierAutomation(gym_id);
-        }
-
-        public async Task turnOnDehumidifierAutomation(int gym_id)
-        {
-            dataAccess.turnOnDehumidifierAutomation(gym_id);
         }
 
         public async Task turnOffHumidifierAutomation(int gym_id)

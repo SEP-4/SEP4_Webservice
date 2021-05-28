@@ -35,31 +35,7 @@ namespace SEP4_Webservice.DataAccess
                 return output;
             }
         }
-
-        public void turnOffDehumidifier(int gym_id)
-        {
-            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
-            {
-                connection.Query<Dehumidifier>("dbo.spTurnOff_Dehumidifier @Gym_ID", new { Gym_ID = gym_id });
-            }
-        }
-
-        public void turnOnDehumidifier(int gym_id)
-        {
-            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
-            {
-                connection.Query<Dehumidifier>("dbo.spTurnOn_Dehumidifier @Gym_ID", new { Gym_ID = gym_id });
-            }
-        }
-
-        public Dehumidifier GetDehumidifierByGymID(int gym_id)
-        {
-            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
-            {
-                var output = connection.Query<Dehumidifier>("dbo.spDehumidifier_GetByGymID @Gym_ID", new { Gym_ID = gym_id }).First();
-                return output;
-            }
-        }
+        
 
         public void turnOffHumidifier(int gym_id)
         {
@@ -124,22 +100,6 @@ namespace SEP4_Webservice.DataAccess
             using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
             {
                 connection.Query<AC>("dbo.spTurnOnAutomation_AC @Gym_ID", new { Gym_ID = gym_id });
-            }
-        }
-
-        public void turnOffDehumidifierAutomation(int gym_id)
-        {
-            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
-            {
-                connection.Query<Dehumidifier>("dbo.spTurnOffAutomation_Dehumidifier @Gym_ID", new { Gym_ID = gym_id });
-            }
-        }
-
-        public void turnOnDehumidifierAutomation(int gym_id)
-        {
-            using (IDbConnection connection = new SqlConnection(Helper.CnnVal("SEP4DB")))
-            {
-                connection.Query<Dehumidifier>("dbo.spTurnOnAutomation_Dehumidifier @Gym_ID", new { Gym_ID = gym_id });
             }
         }
 
