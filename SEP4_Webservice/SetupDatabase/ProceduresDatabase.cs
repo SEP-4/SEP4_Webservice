@@ -180,7 +180,7 @@ namespace SEP4_Webservice.SetupDatabase
                 "as " +
                 "begin " +
                     "SET NOCOUNT ON; " +
-                    "select Gym_ID, State, automation  " +
+                    "select Gym_ID, State, automation, TargetHumidity  " +
                     "from dbo.Humidifier " +
                     "where Gym_ID = @Gym_ID " +
                 "end";
@@ -232,7 +232,7 @@ namespace SEP4_Webservice.SetupDatabase
                 "as " +
                 "begin " +
                     "SET NOCOUNT ON; " +
-                    "select Gym_ID, State, automation " +
+                    "select Gym_ID, State, automation, TargetCO2Level " +
                     "from dbo.Window " +
                     "where Gym_ID = @Gym_ID " +
                 "end";

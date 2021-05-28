@@ -11,6 +11,7 @@ namespace SEP4_Webservice.Model
         public int Gym_ID { get; set; }
         public int State { get; set; }
         public int automation { get; set; }
+        public float TargetHumidity { get; set; }
         public override string ToString()
         {
             return JsonSerializer.Serialize(this);

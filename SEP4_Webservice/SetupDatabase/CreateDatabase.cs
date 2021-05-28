@@ -118,6 +118,7 @@ namespace SEP4_Webservice.SetupDatabase
     "[Gym_ID] [int] NOT NULL, " +
     "[State] [bit] NULL, " +
     "[automation] [bit] NULL, " +
+    "[TargetHumidity] [float] NULL, " +
  "CONSTRAINT[PK_Humidifier] PRIMARY KEY CLUSTERED " +
 "(" +
     "[Humidifier_ID] ASC " +
@@ -139,6 +140,7 @@ namespace SEP4_Webservice.SetupDatabase
     "[Gym_ID] [int] NOT NULL, " +
     "[State] [bit] NULL, " +
     "[automation] [bit] NULL, " +
+    "[TargetCO2Level] [float] NULL, " +
  "CONSTRAINT[PK_Window] PRIMARY KEY CLUSTERED " +
 "(" +
     "[Window_ID] ASC " +
